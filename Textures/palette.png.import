@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/palette.png-196539f3632c2e4823f1dd70f49047a2.stex"
+path="res://.import/palette.png-ae3ccf45afac3593932fa8262aa6ebc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/palette.png"
-dest_files=[ "res://.import/palette.png-196539f3632c2e4823f1dd70f49047a2.stex" ]
+source_file="C:/Users/ADrozdov/Documents/TubeRoller/Textures/palette.png"
+dest_files=[ "res://.import/palette.png-ae3ccf45afac3593932fa8262aa6ebc1.stex" ]
 
 [params]
 
