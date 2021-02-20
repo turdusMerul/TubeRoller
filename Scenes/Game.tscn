@@ -1,76 +1,47 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Objects/Ball.res" type="PackedScene" id=1]
-[ext_resource path="res://Objects/TubeY.res" type="PackedScene" id=2]
-[ext_resource path="res://Objects/TubeL.res" type="PackedScene" id=3]
-[ext_resource path="res://Objects/TubeI.res" type="PackedScene" id=4]
-
-[sub_resource type="ProceduralSky" id=1]
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Camera
-
-
-onready var target = $\"../Ball\"
-
-
-func _ready():
-	pass
-
-
-func _process(delta):
-	var pos = transform.origin.linear_interpolate(target.transform.origin + Vector3(-4, 1, 0), .05)
-	look_at_from_position(pos, target.transform.origin, Vector3.UP)
-"
+[ext_resource path="res://MainEnv.tres" type="Environment" id=2]
+[ext_resource path="res://Objects/TubeI.res" type="PackedScene" id=3]
+[ext_resource path="res://Objects/TubeL.res" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Controller.res" type="PackedScene" id=5]
 
 [node name="Game" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = ExtResource( 2 )
 
-[node name="Ball" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71459, -3 )
+[node name="Controller" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1, 0 )
+target_path = NodePath("../PlayerStart/Ball")
 
-[node name="TubeL" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -10.7974, 0, 35.0103 )
+[node name="PlayerStart" type="Spatial" parent="."]
 
-[node name="TubeL2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 35.2026, 0, 35.0103 )
+[node name="Ball" parent="PlayerStart" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
-[node name="TubeL3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 46.2026, 0, 16.0103 )
+[node name="TubeStr" parent="." instance=ExtResource( 3 )]
 
-[node name="TubeL5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 35.2026, 0, -3.04229 )
+[node name="TubeL" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 6.55671e-07 )
 
-[node name="TubeL4" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, -21.7974, 0, 16.0103 )
+[node name="TubeL2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -26.0083, 3.8147e-06, 19.067 )
 
-[node name="TubeStr" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 35 )
+[node name="TubeStr2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -18.5042, 0, 32.0817 )
 
-[node name="TubeStr2" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 35 )
+[node name="TubeL3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -11.0042, 0, 45.0721 )
 
-[node name="TubeStr3" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 35 )
+[node name="TubeL4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 11.0125, 3.8147e-06, 45.0721 )
 
-[node name="TubeStr4" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -3 )
+[node name="TubeStr3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 18.4854, -3.8147e-06, 32.0931 )
 
-[node name="TubeStr6" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, -3 )
+[node name="TubeL5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 25.9854, -3.8147e-06, 19.1027 )
 
-[node name="TubeStr5" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, -3 )
-
-[node name="TubeY" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -10.7768, 0, -2.9866 )
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.0236502, 0.694305, -0.719293, -0.00633705, 0.719584, 0.694377, 0.9997, -0.0118639, 0.0214181, -3, 4, -3 )
-script = SubResource( 3 )
+[node name="TubeL6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 14.9771, 0, 0.0357571 )
