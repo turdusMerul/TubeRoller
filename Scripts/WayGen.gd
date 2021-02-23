@@ -1,9 +1,21 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var fwdTubesGen = 8
+export var objects = [
+	{
+		"object" : "res://Objects/TubeI.res",
+		"percent" : .33
+	},
+	{
+		"object" : "res://Objects/TubeL.res",
+		"percent" : .33
+	},
+	{
+		"object" : "res://Objects/TubeY.res",
+		"percent" : .33
+	}
+]
 
 
 # Called when the node enters the scene tree for the first time.
